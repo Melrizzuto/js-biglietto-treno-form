@@ -15,9 +15,10 @@ const passengerInfo = document.getElementById("personalInfo");
 const discountInfo = document.getElementById("discountInfo");
 const totalPrice = document.getElementById("totalPrice");
 const cancelButton = document.getElementById("cancelButton");
+const cpCodeElement = document.getElementById("cpCode"); // Aggiungi l'elemento per il codice CP
 
 // Gestione invio del modulo
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
     event.preventDefault(); // Impedisce il comportamento predefinito del form
 
     // Otteniamo i valori dai campi di input che l'utente ha scritto
@@ -30,18 +31,18 @@ form.addEventListener("submit", function(event) {
     if (!isNaN(km) && !isNaN(age)) {
         let totalPriceValue = km * priceKm;  // Calcolo il prezzo totale
         let result;
-        let discountApplied = ""; 
+        let discountApplied = "";
 
         // Condizioni per applicare gli sconti
         if (age < 18) {
-            result = totalPriceValue - (totalPriceValue * youngDiscount / 100); 
-            discountApplied = "young (20%)";
+            result = totalPriceValue - (totalPriceValue * youngDiscount / 100);
+            discountApplied = "Young (20%)";
         } else if (age > 65) {
             result = totalPriceValue - (totalPriceValue * seniorDiscount / 100);
-            discountApplied = "senior (40%)";
+            discountApplied = "Senior (40%)";
         } else {
             result = totalPriceValue;
-            discountApplied = "nessuno sconto applicato";
+            discountApplied = "Nessuno sconto applicato";
         }
 
         // Mostra il risultato sul DOM
@@ -52,13 +53,15 @@ form.addEventListener("submit", function(event) {
         totalPrice.innerHTML = `Il prezzo finale è:<br>€${result.toFixed(2)}`;
         discountInfo.innerHTML = `Sconto applicato:<br>${discountApplied}`;
 
+        // Genera il codice CP
+        const cpCode = generateCP();
+        cpCodeElement.innerHTML = cpCode; // Aggiungi il codice CP nell'elemento span
     } else {
         alert("Per favore, inserisci valori validi.");
     }
 });
 
-
-cancelButton.addEventListener("click", function() {
+cancelButton.addEventListener("click", function () {
     // Nasconde il div dei risultati
     resultDiv.style.display = "none";
 
@@ -66,4 +69,16 @@ cancelButton.addEventListener("click", function() {
     passengerInfo.innerHTML = "";
     discountInfo.innerText = "";
     totalPrice.innerText = "";
+    cpCodeElement.innerHTML = ""; // Aggiungi il reset del codice CP
 });
+
+// Funzione per generare un codice CP casuale
+function generateCP() {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let cp = "";
+    for (let i = 0; i < 2; i++) {
+        cp += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    cp += Math.floor(100000 + Math.random() * 900000); // 6 numeri casuali
+    return cp;
+}
