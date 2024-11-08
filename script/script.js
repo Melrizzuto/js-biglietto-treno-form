@@ -11,7 +11,7 @@ const surnameInput = document.getElementById("surname");
 const kmInput = document.getElementById("km");
 const ageInput = document.getElementById("age");
 const resultDiv = document.getElementById("result");
-const personalInfo = document.getElementById("personalInfo");
+const passengerInfo = document.getElementById("personalInfo");
 const discountInfo = document.getElementById("discountInfo");
 const totalPrice = document.getElementById("totalPrice");
 const cancelButton = document.getElementById("cancelButton");
@@ -48,9 +48,9 @@ form.addEventListener("submit", function(event) {
         resultDiv.style.display = "block";
 
         // Stampa risultato sul DOM 
-        personalInfo.innerHTML = `<strong>${name} ${surname}</strong>`;
-        totalPrice.innerText = `Il prezzo finale è: €${result.toFixed(2)}`;
-        discountInfo.innerText = `Sconto applicato: ${discountApplied}`;
+        passengerInfo.innerHTML = `<strong>${name} ${surname}</strong>`;
+        totalPrice.innerHTML = `Il prezzo finale è:<br>€${result.toFixed(2)}`;
+        discountInfo.innerHTML = `Sconto applicato:<br>${discountApplied}`;
 
     } else {
         alert("Per favore, inserisci valori validi.");
@@ -63,7 +63,7 @@ cancelButton.addEventListener("click", function() {
     resultDiv.style.display = "none";
 
     // Svuota i dati
-    personalInfo.innerHTML = "";
+    passengerInfo.innerHTML = "";
     discountInfo.innerText = "";
     totalPrice.innerText = "";
 });

@@ -8,6 +8,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Calcolo del prezzo del biglietto del treno</title>
+
 </head>
 
 <body class="bg-white text-dark">
@@ -43,15 +44,23 @@
         </div>
 
         <!-- Risultato del biglietto -->
-        <div id="result" class="container mt-5" style="display:none;">
-            <div class="ticket bg-light p-4 rounded shadow">
+        <div id="result" class="container mx-5">
+            <div class="ticket bg-light  p-4 rounded shadow">
                 <h3 class="text-center text-danger">Biglietto Trenitalia</h3>
-                <p id="personalInfo" class="text-center"></p>
-                <p id="discountInfo" class="text-center"></p>
-                <p id="totalPrice" class="text-center"></p>
-                <p id="carriage" class="text-center">Carrozza: <span id="carriageNumber"></span></p>
-                <p id="cp" class="text-center">Codice CP: <span id="cpCode"></span></p>
-                <div id="qrCode" class="text-center mt-4"></div>
+                <div class="ticket bg-light d-flex justify-content-around p-4 rounded">
+                    <div id="passenger-info" class="bg-light">
+                        <h4 class="text-center text-danger">Dettagli passeggero</h4>
+                        <p id="personalInfo" class="text-center"></p>
+                        <p id="discountInfo" class="text-center"></p>
+                        <p id="totalPrice" class="text-center"></p>
+                    </div>
+                    <div id="ticket-info" class="bg-light">
+                        <h4 class="text-center text-danger">Dettagli Biglietto</h4>
+                        <p id="carriage" class="text-center">Carrozza: <span id="carriageNumber"></span></p>
+                        <p id="cp" class="text-center">Codice CP: <span id="cpCode"></span></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
