@@ -15,7 +15,8 @@ const passengerInfo = document.getElementById("personalInfo");
 const discountInfo = document.getElementById("discountInfo");
 const totalPrice = document.getElementById("totalPrice");
 const cancelButton = document.getElementById("cancelButton");
-const cpCodeElement = document.getElementById("cpCode"); // Aggiungi l'elemento per il codice CP
+const cpCodeElement = document.getElementById("cpCode");
+const carriageNumberElement = document.getElementById("carriageNumber");
 
 // Gestione invio del modulo
 form.addEventListener("submit", function (event) {
@@ -55,7 +56,11 @@ form.addEventListener("submit", function (event) {
 
         // Genera il codice CP
         const cpCode = generateCP();
-        cpCodeElement.innerHTML = cpCode; // Aggiungi il codice CP nell'elemento span
+        cpCodeElement.innerHTML = cpCode;
+
+        // Genera il numero della carrozza
+        const carriageNumber = generateCarriageNumber();
+        carriageNumberElement.innerHTML = carriageNumber;
     } else {
         alert("Per favore, inserisci valori validi.");
     }
@@ -69,7 +74,8 @@ cancelButton.addEventListener("click", function () {
     passengerInfo.innerHTML = "";
     discountInfo.innerText = "";
     totalPrice.innerText = "";
-    cpCodeElement.innerHTML = ""; // Aggiungi il reset del codice CP
+    cpCodeElement.innerHTML = "";
+    carriageNumberElement.innerHTML = "";
 });
 
 // Funzione per generare un codice CP casuale
@@ -79,6 +85,11 @@ function generateCP() {
     for (let i = 0; i < 2; i++) {
         cp += letters.charAt(Math.floor(Math.random() * letters.length));
     }
-    cp += Math.floor(100000 + Math.random() * 900000); // 6 numeri casuali
+    cp += Math.floor(100000 + Math.random() * 900000);
     return cp;
+}
+
+// Funzione per generare un numero di carrozza casuale
+function generateCarriageNumber() {
+    return Math.floor(Math.random() * 10) + 1;
 }
