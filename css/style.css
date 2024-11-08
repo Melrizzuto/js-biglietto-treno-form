@@ -5,3 +5,35 @@
 #logo img {
     width: 250px;
 }
+
+
+/* Stile per il biglietto */
+.ticket {
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer del biglietto */
+.ticket-footer {
+    background-color: #f8f9fa;
+    border-top: 2px solid black;
+    padding: 10px 15px;
+}
+
+/* Dettagli biglietto in orizzontale */
+.ticket-details {
+    margin-bottom: 20px;
+}
+
+/* Dettagli di ciascun biglietto */
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.fs-4 {
+    font-size: 1.25rem;
+}

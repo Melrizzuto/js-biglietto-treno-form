@@ -43,7 +43,7 @@ form.addEventListener("submit", function (event) {
             discountApplied = "Senior (40%)";
         } else {
             result = totalPriceValue;
-            discountApplied = "Nessuno sconto applicato";
+            discountApplied = "Standard";
         }
 
         // Mostra il risultato sul DOM
@@ -52,7 +52,7 @@ form.addEventListener("submit", function (event) {
         // Stampa risultato sul DOM 
         passengerInfo.innerHTML = `<strong>${name} ${surname}</strong>`;
         totalPrice.innerHTML = `Il prezzo finale è:<br>€${result.toFixed(2)}`;
-        discountInfo.innerHTML = `Sconto applicato:<br>${discountApplied}`;
+        discountInfo.innerHTML = `Biglietto ${discountApplied}`;
 
         // Genera il codice CP
         const cpCode = generateCP();
