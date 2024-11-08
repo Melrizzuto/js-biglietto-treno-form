@@ -4,42 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>calcolo del prezzo del biglietto del treno</title>
+    <title>Calcolo del prezzo del biglietto del treno</title>
 </head>
 
-<body class="bg-danger text-white">
+<body class="bg-white text-dark">
     <!-- header sito -->
     <header class="text-center py-4">
-        <h1>Calcolo Prezzo Biglietto</h1>
+        <div id="logo">
+            <img src="https://www.trenitalia.com/content/dam/tcom/asset/icon/header-logo/logo-trenitalia.svg"
+                alt="Logo Trenitalia">
+        </div>
     </header>
     <!-- inizia main -->
     <main>
         <!-- inizia il form -->
-        <div class="container bg-white text-dark p-5 rounded shadow-lg w-50">
+        <div class="container bg-danger text-white p-5 rounded shadow-lg w-50">
             <h2 class="text-center mb-6">Inserisci i dati</h2>
             <form id="ticketForm" class="form-group">
                 <!-- nome -->
                 <label for="name" class="mt-3 mb-2">Il tuo nome:</label>
                 <input type="text" id="name" class="form-control" placeholder="Inserisci il tuo nome" required>
                 <!-- cognome -->
-
                 <label for="surname" class="mt-3 mb-2">Il tuo cognome:</label>
                 <input type="text" id="surname" class="form-control" placeholder="Inserisci il tuo cognome" required>
                 <!-- km -->
                 <label for="km" class="mt-3 mb-2">Km da percorrere:</label>
-                <input type="text" id="km" class="form-control" placeholder="Inserisci il numero di chilometri" required>
+                <input type="text" id="km" class="form-control" placeholder="Inserisci il numero di chilometri"
+                    required>
                 <!-- età -->
                 <label for="age" class="mt-3 mb-2">Fascia età:</label>
                 <input type="text" id="age" class="form-control" placeholder="Inserisci la tua età" required>
-        <button type="submit" class="btn btn-success mt-4">Genera</button>
-        <button type="reset" id="cancelButton" class="btn btn-light mt-4">Annulla</button>
-        <!-- il risultato del biglietto (che appare dopo il click sul pulsante invia) -->
-        <div id="result" class="mt-5">
-            <p id="personalInfo">Nome passeggero</p>
-            <p id="discountInfo">sconto applicato</p>
-                <p id="totalPrice">Prezzo totale</p>
+                <button type="submit" class="btn btn-success mt-4">Genera</button>
+                <button type="reset" id="cancelButton" class="btn btn-light mt-4">Annulla</button>
+            </form>
+        </div>
+
+        <!-- Risultato del biglietto -->
+        <div id="result" class="container mt-5" style="display:none;">
+            <div class="ticket bg-light p-4 rounded shadow">
+                <h3 class="text-center text-danger">Biglietto Trenitalia</h3>
+                <p id="personalInfo" class="text-center"></p>
+                <p id="discountInfo" class="text-center"></p>
+                <p id="totalPrice" class="text-center"></p>
+                <p id="carriage" class="text-center">Carrozza: <span id="carriageNumber"></span></p>
+                <p id="cp" class="text-center">Codice CP: <span id="cpCode"></span></p>
+                <div id="qrCode" class="text-center mt-4"></div>
+            </div>
         </div>
     </main>
 
