@@ -1,5 +1,6 @@
 #result {
     display: none;
+    max-width: 600px;
 }
 
 #logo img {

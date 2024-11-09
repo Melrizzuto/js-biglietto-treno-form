@@ -42,32 +42,33 @@
         </div>
 
         <!-- Risultato del biglietto -->
-        <div id="result" class="container mx-5 mt-5">
-            <div class="ticket bg-light p-4 rounded shadow position-relative">
-                <h3 class="text-center text-danger">Il Tuo Biglietto Trenitalia</h3>
-                <div class="ticket-details bg-light d-flex justify-content-around p-4 rounded">
-                    <div id="passenger-info" class="bg-light">
-                        <h4 class=" text-danger">Dettagli passeggero</h4>
-                        <p id="personalInfo" class=""></p>
-                        <p id="discountInfo" class=""></p>
-                    </div>
-                    <div id="ticket-info" class="bg-light">
-                        <h4 class=" text-danger">Dettagli Biglietto</h4>
-                        <p id="carriage" class="">Carrozza: <span id="carriageNumber"></span></p>
-                        <p id="cp" class="">Codice CP: <span id="cpCode"></span></p>
-                    </div>
-                </div>
-
-                <!-- Footer del biglietto (totale e pulsante) -->
-                <div class="ticket-footer p-3 d-flex justify-content-between">
-                
-                    <!-- Totale pagamento -->
-                    <p id="totalPrice" class="text-end mb-0 fs-6"><strong></strong></p>
-                    <!-- Pulsante per pagamento -->
-                    <button class="btn btn-success shadow">Vai al pagamento</button>
-                </div>
+        <div id="result" class="container mx-auto mt-5">
+    <div class="ticket bg-light p-4 rounded shadow">
+        <h3 class="text-center text-danger mb-4">Il Tuo Biglietto Trenitalia</h3>
+        
+        <!-- Dettagli del biglietto -->
+        <div class="ticket-details bg-light d-flex justify-content-between align-items-start p-3 rounded border">
+            <div id="passenger-info">
+                <h4 class="text-danger">Dettagli passeggero</h4>
+                <p id="personalInfo"></p>
+                <p id="discountInfo"></p>
+            </div>
+            <div id="ticket-info">
+                <h4 class="text-danger">Dettagli Biglietto</h4>
+                <p id="carriage">Carrozza: <span id="carriageNumber"></span></p>
+                <p id="cp">Codice CP: <span id="cpCode"></span></p>
             </div>
         </div>
+        
+        <!-- Footer del biglietto -->
+        <div class="ticket-footer p-3 mt-4 d-flex justify-content-between align-items-center bg-danger text-white rounded">
+            <!-- Totale pagamento -->
+            <p id="totalPrice" class="mb-0 fs-6"><strong>Totale: €<span id="price"></span></strong></p>
+            <!-- Pulsante per pagamento -->
+            <button class="btn btn-light shadow">Vai al pagamento</button>
+        </div>
+    </div>
+</div>
     </main>
 
     <script src="./script/script.js"></script>
